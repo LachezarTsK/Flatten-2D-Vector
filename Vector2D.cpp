@@ -1,19 +1,20 @@
 
+#include<string>
 #include<iterator>
 #include<vector>
 using namespace std;
 
 class Vector2D {
-    
+
 public:
 
-    vector<vector<int>>::iterator row {};
+    vector<vector<int>>::iterator row{};
     vector<int>::iterator column{};
 
-    vector<vector<int>>::iterator begin {};
-    vector<vector<int>>::iterator end {};
+    vector<vector<int>>::iterator begin{};
+    vector<vector<int>>::iterator end{};
 
-    Vector2D(vector<vector<int>>&vec) {
+    Vector2D(vector<vector<int>>& vec) {
 
         begin = vec.begin();
         end = vec.end();
@@ -24,7 +25,7 @@ public:
 
     int next() {
         if (!hasNext()) {
-            throw out_of_range("row = " + distance(begin, row) + " is out of bounds!");
+            throw out_of_range("row = " + to_string(distance(begin, row)) + " is out of bounds!");
         }
         return *column++;
     }
